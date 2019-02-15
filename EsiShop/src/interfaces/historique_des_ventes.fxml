@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="687.0" prefWidth="683.0" stylesheets="@sample.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller_historique_des_ventes">
+   <children>
+      <TableView fx:id="thv" layoutX="14.0" layoutY="127.0" prefHeight="259.0" prefWidth="656.0">
+        <columns>
+          <TableColumn fx:id="idcf" prefWidth="130.0" text="id facture" />
+          <TableColumn fx:id="client" prefWidth="136.0" text="client" />
+            <TableColumn fx:id="date" minWidth="3.0" prefWidth="150.0" text="date" />
+            <TableColumn fx:id="total1" minWidth="0.0" prefWidth="239.0" text="total" />
+        </columns>
+      </TableView>
+      <TableView fx:id="thvad" layoutX="14.0" layoutY="398.0" prefHeight="274.0" prefWidth="656.0">
+        <columns>
+          <TableColumn fx:id="idproduit" prefWidth="130.0" text="id produit" />
+          <TableColumn fx:id="produit" prefWidth="135.0" text="produit" />
+            <TableColumn fx:id="qt" prefWidth="150.0" text="quantite" />
+            <TableColumn fx:id="total2" prefWidth="240.0" text="total" />
+        </columns>
+      </TableView>
+<JFXButton fx:id="back" buttonType="RAISED" layoutX="16.0" layoutY="12.0" mnemonicParsing="false" onAction="#Back" prefHeight="65.0" prefWidth="65.0" text="">
+                 <graphic>
+        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+          <image>
+            <Image url="project/img/back.png" />
+          </image>
+        </ImageView>
+      </graphic>
+             </JFXButton>
+ 
+      <JFXDatePicker fx:id="to" layoutX="267.0" layoutY="78.0" onHidden="#defaultTheme" />
+      <JFXDatePicker fx:id="from" layoutX="267.0" layoutY="41.0" onHidden="#defaultTheme" />
+      <JFXButton fx:id="btnFiltre" layoutX="554.0" layoutY="29.0" onAction="#filtrer" prefHeight="25.0" prefWidth="70.0" text="Filtrer" />
+      <VBox layoutX="124.0" layoutY="17.0" prefHeight="113.0" prefWidth="136.0" spacing="15.0">
+         <children>
+            <JFXRadioButton fx:id="CeJour" onAction="#RadioSelect" styleClass="radiobut" text="ce jour">
+               <toggleGroup>
+                  <ToggleGroup fx:id="filtre" />
+               </toggleGroup>
+            </JFXRadioButton>
+            <JFXRadioButton fx:id="CetteSemain" onAction="#RadioSelect" prefHeight="17.0" prefWidth="118.0" styleClass="radiobut" text="cette semaine" toggleGroup="$filtre" />
+            <JFXRadioButton fx:id="CeMois" onAction="#RadioSelect" styleClass="radiobut" text="ce mois" toggleGroup="$filtre" />
+         </children>
+      </VBox>
+      <Label fx:id="Recette" layoutX="553.0" layoutY="78.0" prefHeight="27.0" prefWidth="73.0" />
+      <Label layoutX="480.0" layoutY="78.0" text="Recette :" />
+      <JFXRadioButton fx:id="ParDate" layoutX="279.0" layoutY="17.0" onAction="#RadioSelect" styleClass="radiobut" text="filtre par date" toggleGroup="$filtre" />
+   </children>
+</AnchorPane>

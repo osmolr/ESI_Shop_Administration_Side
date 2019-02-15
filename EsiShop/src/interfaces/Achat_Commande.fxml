@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="641.0" prefWidth="1046.0" stylesheets="@sample.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ControllerAchat_Commande">
+   <children>
+      <TableView fx:id="tac" layoutX="16.0" layoutY="296.0" onMousePressed="#defaultTheme" prefHeight="317.0" prefWidth="1015.0">
+        <columns>
+            <TableColumn fx:id="id" prefWidth="51.0" text="id" />
+            <TableColumn fx:id="produit" prefWidth="90.0" text="Produit" />
+            <TableColumn fx:id="article" prefWidth="76.0" text="Article" />
+            <TableColumn fx:id="marque" prefWidth="89.0" text="Marque" />
+            <TableColumn fx:id="couleur" prefWidth="79.0" text="Couleur" />
+            <TableColumn fx:id="taille" prefWidth="55.0" text="taille" />
+            <TableColumn fx:id="prix" prefWidth="112.0" text="Prix unitaire" />
+            <TableColumn fx:id="qt" prefWidth="49.0" text="Qt" />
+            <TableColumn fx:id="total" prefWidth="59.0" text="Total" />
+            <TableColumn fx:id="Fournisseur" prefWidth="114.0" text="Fournisseur" />
+            <TableColumn fx:id="d" prefWidth="188.0" text="Date de Commande" />
+            <TableColumn fx:id="etat" minWidth="100.0" prefWidth="48.0" text="Etat" />
+        </columns>
+      </TableView>
+       <JFXTextField fx:id="qtac" labelFloat="true" layoutX="585.0" layoutY="200.0" onKeyPressed="#defaultTheme" promptText="Qt" />
+      <VBox layoutX="820.0" layoutY="120.0" spacing="20.0">
+         <children>
+            <JFXButton fx:id="BtnNC" buttonType="RAISED" mnemonicParsing="false" onAction="#addac" prefHeight="40.0" prefWidth="192.0" text="Nouvelle Commande" />
+            <JFXButton fx:id="BtnMC" buttonType="RAISED" mnemonicParsing="false" onAction="#modac" prefHeight="39.0" prefWidth="192.0" text="Modifier commande" />
+            <JFXButton fx:id="BtnAC" buttonType="RAISED" mnemonicParsing="false" onAction="#annac" prefHeight="39.0" prefWidth="192.0" text="Annnuler commande" />
+         </children>
+      </VBox>
+      <AnchorPane id="navbar" layoutX="-13.0" prefHeight="101.0" prefWidth="1074.0" styleClass="navbar">
+         <children>
+            <JFXButton fx:id="back" buttonType="RAISED" layoutX="35.0" layoutY="12.0" mnemonicParsing="false" onAction="#Back" prefHeight="62.0" prefWidth="79.0" text="">
+                 <graphic>
+        <ImageView fitHeight="62.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
+          <image>
+            <Image url="project/img/back.png" />
+          </image>
+        </ImageView>
+      </graphic>
+             </JFXButton>
+			<TextField fx:id="time" layoutX="497.0" layoutY="17.0" maxWidth="409.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="409.0" styleClass="tex">
+               <font>
+                  <Font size="37.0" />
+               </font>
+            </TextField>
+            <JFXTextField id="recherchenavbar" fx:id="rechac" labelFloat="true" layoutX="142.0" layoutY="38.0" onKeyReleased="#rechAC" prefHeight="25.0" prefWidth="150.0" promptText="Recherche :" />
+   
+             <JFXComboBox id="recherchenavbar" fx:id="cetat" labelFloat="true" layoutX="328.0" layoutY="34.0" onAction="#rechAC" prefWidth="150.0" promptText="Etat">
+                 <items>
+                     <FXCollections fx:factory="observableArrayList">
+                         <String fx:value="" />
+                         <String fx:value="commande" />
+                         <String fx:value="en route" />
+                         <String fx:value="achat" />
+                     </FXCollections>
+                 </items>
+             </JFXComboBox>
+             <JFXButton id="notification" fx:id="btnnoti" buttonType="RAISED" layoutX="920.0" layoutY="11.0" mnemonicParsing="false" onAction="#opennoti" prefHeight="80.0" prefWidth="87.0">
+                 <graphic>
+                     <ImageView fitHeight="48.0" fitWidth="50.0" layoutX="1243.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+                         <image>
+                             <Image url="project/img/bell.png" />
+                         </image>
+                     </ImageView>
+                 </graphic>
+             </JFXButton>
+            <TextField fx:id="noti" layoutX="985.0" layoutY="8.0" prefHeight="37.0" prefWidth="33.0" styleClass="tex">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+         </children>
+      </AnchorPane>
+      <Separator layoutX="536.0" layoutY="106.0" orientation="VERTICAL" prefHeight="187.0" prefWidth="17.0" />
+      <Label fx:id="produitsel" layoutX="585.0" layoutY="142.0" prefHeight="27.0" prefWidth="204.0" />
+   </children>
+</AnchorPane>

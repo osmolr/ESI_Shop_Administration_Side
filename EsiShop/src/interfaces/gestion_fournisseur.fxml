@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" stylesheets="@sample.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller_fournisseur">
+   <children>
+      <TableView fx:id="tf" layoutX="14.0" layoutY="358.0" onMousePressed="#defaultTheme" prefHeight="376.0" prefWidth="962.0">
+        <columns>
+            <TableColumn fx:id="idf" prefWidth="54.0" text="ID" />
+          <TableColumn fx:id="nom" prefWidth="76.0" text="Nom" />
+          <TableColumn fx:id="prenom" prefWidth="82.0" text="Prenom" />
+            <TableColumn fx:id="ntel" prefWidth="117.0" text="N° Tel" />
+            <TableColumn fx:id="nregcom" prefWidth="159.0" text="N° de reg comm" />
+            <TableColumn fx:id="fax" minWidth="0.0" prefWidth="123.0" text="Fax" />
+            <TableColumn fx:id="nometu" prefWidth="169.0" text="Nom d'utilisateur" />
+            <TableColumn fx:id="mdp" prefWidth="180.0" text="Mot de passe" />
+        </columns>
+      </TableView>
+      <VBox layoutX="367.0" layoutY="114.0" spacing="30.0">
+         <children>
+             <Label text="Nom" />
+            <Label text="Prenom" />
+            <Label text="N° Tel" />
+         </children>
+      </VBox>
+      <VBox layoutX="433.0" layoutY="109.0" spacing="30.0">
+         <children>
+            <JFXTextField fx:id="nomf" labelFloat="true" onKeyPressed="#defaultTheme" />
+            <JFXTextField fx:id="prenomf" onKeyPressed="#defaultTheme" />
+            <JFXTextField fx:id="ntelf" onKeyPressed="#defaultTheme" />
+         </children>
+      </VBox>
+      <VBox layoutX="589.0" layoutY="114.0" spacing="30.0">
+         <children>
+            <Label text="Nom d'utilisateur" />
+            <Label text="Mot de passe" />
+            <Label text="E-mail" />
+         </children>
+      </VBox>
+      <VBox layoutX="730.0" layoutY="109.0" prefHeight="141.0" prefWidth="173.0" spacing="30.0">
+         <children>
+            <JFXTextField fx:id="nometuf" onKeyPressed="#defaultTheme" />
+            <JFXTextField fx:id="motpassef" onKeyPressed="#defaultTheme" />
+             <JFXTextField fx:id="emailf" onKeyPressed="#defaultTheme" />
+         </children>
+      </VBox>
+      <VBox layoutX="921.0" layoutY="113.0" spacing="30.0">
+         <children>
+            <Label text="N° reg " />
+            <Label text="Fax" />
+            <Label text="Adresse" />
+         </children>
+      </VBox>
+      <VBox layoutX="998.0" layoutY="109.0" spacing="30.0">
+         <children>
+            <JFXTextField fx:id="nregf" onKeyPressed="#defaultTheme" />
+            <JFXTextField fx:id="faxf" onKeyPressed="#defaultTheme" />
+             <JFXTextField fx:id="adrf" onKeyPressed="#defaultTheme" />
+            <JFXComboBox fx:id="bmarque" labelFloat="true" onAction="#defaultTheme" onMouseClicked="#MAJMarqueDisponible" prefWidth="150.0" promptText="Marque" />
+         </children>
+      </VBox>
+      <VBox layoutX="1185.0" layoutY="111.0" spacing="15.0">
+         <children>
+            <JFXButton buttonType="RAISED" mnemonicParsing="false" onAction="#addf" prefHeight="39.0" prefWidth="173.0" text="Ajouter fournisseur" />
+            <JFXButton buttonType="RAISED" mnemonicParsing="false" onAction="#suppf" prefHeight="39.0" prefWidth="173.0" text="Supprimer fournisseur" />
+            <JFXButton fx:id="btnmod" buttonType="RAISED" mnemonicParsing="false" onAction="#modf" prefHeight="39.0" prefWidth="173.0" text=" Modifier founisseur " />
+            <JFXButton buttonType="RAISED" onAction="#openMarque" prefHeight="39.0" prefWidth="173.0" text="Ajouter marque" />
+            <JFXButton buttonType="RAISED" mnemonicParsing="false" onAction="#viderC" prefHeight="39.0" prefWidth="173.0" text="Vider" />
+         </children>
+      </VBox>
+      <AnchorPane id="navbar" layoutX="1.0" layoutY="3.0" prefHeight="101.0" prefWidth="1366.0" styleClass="navbar">
+         <children>
+            <JFXButton fx:id="back" buttonType="RAISED" layoutX="16.0" layoutY="12.0" mnemonicParsing="false" onAction="#Back" prefHeight="62.0" prefWidth="79.0" text="">
+                 <graphic>
+        <ImageView fitHeight="62.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
+          <image>
+            <Image url="project/img/back.png" />
+          </image>
+        </ImageView>
+      </graphic>
+             </JFXButton>
+			<TextField fx:id="time" layoutX="478.0" layoutY="8.0" maxWidth="409.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="409.0" styleClass="tex">
+               <font>
+                  <Font size="37.0" />
+               </font>
+            </TextField>
+   
+            <JFXTextField id="recherchenavbar" fx:id="tfr" layoutX="108.0" layoutY="37.0" onKeyReleased="#rechf" prefHeight="25.0" prefWidth="150.0" promptText="Recherche:" />
+            <JFXComboBox id="recherchenavbar" fx:id="cmarque" labelFloat="true" layoutX="294.0" layoutY="32.0" onAction="#rechf" prefWidth="150.0" promptText="Marque" />
+             <JFXButton id="notification" fx:id="btnnoti" buttonType="RAISED" layoutX="1225.0" layoutY="9.0" mnemonicParsing="false" onAction="#opennoti" prefHeight="80.0" prefWidth="87.0">
+                 <graphic>
+                     <ImageView fitHeight="48.0" fitWidth="50.0" layoutX="1243.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+                         <image>
+                             <Image url="project/img/bell.png" />
+                         </image>
+                     </ImageView>
+                 </graphic>
+             </JFXButton>
+            <TextField fx:id="noti" layoutX="1289.0" layoutY="8.0" prefHeight="37.0" prefWidth="34.0" styleClass="tex">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+         </children>
+      </AnchorPane>         
+		 <Label layoutX="39.0" layoutY="72.0" />
+	  <TableView fx:id="tmdf" layoutX="1000.0" layoutY="358.0" prefHeight="376.0" prefWidth="165.0">
+        <columns>
+          <TableColumn fx:id="marque" prefWidth="164.0" text="Marque" />
+        </columns>
+      </TableView>
+      <Separator layoutX="980.0" layoutY="365.0" orientation="VERTICAL" prefHeight="384.0" prefWidth="11.0" />
+      <ImageView fitHeight="237.0" fitWidth="237.0" layoutX="48.0" layoutY="109.0" pickOnBounds="true">
+         <image>
+            <Image url="project/img/fournisseur1.png" />
+         </image>
+      </ImageView>
+      <JFXButton buttonType="RAISED" layoutX="1189.0" layoutY="568.0" onAction="#addm" prefHeight="39.0" prefWidth="173.0" text="plus marque" />
+      <JFXButton buttonType="RAISED" layoutX="1189.0" layoutY="622.0" onAction="#suppm" prefHeight="39.0" prefWidth="173.0" text="moin marque" />
+   </children>
+</AnchorPane>

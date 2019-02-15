@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="600.0" stylesheets="@sample.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller_Notification">
+   <children>
+      <TableView fx:id="tn" layoutX="12.0" layoutY="22.0" onMouseClicked="#DefaultTheme" prefHeight="456.0" prefWidth="572.0">
+        <columns>
+          <TableColumn fx:id="idnotification" prefWidth="75.0" text="id" />
+          <TableColumn fx:id="fournisseur" prefWidth="114.0" text="fournisseur" />
+            <TableColumn fx:id="produit" prefWidth="107.0" text="Produit" />
+            <TableColumn fx:id="titre" prefWidth="109.0" text="Titre" />
+            <TableColumn fx:id="description" prefWidth="166.0" text="description" />
+        </columns>
+      </TableView>
+      <HBox layoutX="36.0" layoutY="513.0" prefWidth="525.0" spacing="80.0">
+         <children>
+            <Button fx:id="btnvalider" mnemonicParsing="false" onAction="#validernoti" prefHeight="25.0" prefWidth="113.0" text="Valide" />
+            <Button fx:id="PasserC" mnemonicParsing="false" onAction="#passercommande" text="passer commande" />
+            <Button fx:id="SuppN" mnemonicParsing="false" onAction="#suppr" prefHeight="25.0" prefWidth="113.0" text="supprimer" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

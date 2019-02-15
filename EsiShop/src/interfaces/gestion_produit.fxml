@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" stylesheets="@sample.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller_produit">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b9f6ca" height="72.0" layoutX="944.0" layoutY="112.0" stroke="BLACK" strokeType="INSIDE" styleClass="rect" width="393.0" />
+      <TableView fx:id="tp" layoutX="14.0" layoutY="385.0" onMousePressed="#defaultTheme" prefHeight="342.0" prefWidth="1330.0">
+        <columns>
+            <TableColumn fx:id="idproduit" prefWidth="60.0" text="id" />
+          <TableColumn fx:id="cb" prefWidth="116.00003051757812" text="code barre" />
+          <TableColumn fx:id="article" minWidth="0.0" text="article" />
+            <TableColumn fx:id="qt" prefWidth="74.00003051757812" text="Qt" />
+            <TableColumn fx:id="marque" prefWidth="102.0" text="marque" />
+            <TableColumn fx:id="couleur" prefWidth="129.0" text="couleur" />
+            <TableColumn fx:id="taille" prefWidth="78.0" text="Taille" />
+            <TableColumn fx:id="pa" prefWidth="178.0" text="prix d'achat" />
+            <TableColumn fx:id="pv" prefWidth="155.0" text="prix de vente" />
+            <TableColumn fx:id="remise" prefWidth="131.0" text="remise" />
+            <TableColumn fx:id="tva" minWidth="1.0" prefWidth="129.0" text="TVA" />
+            <TableColumn fx:id="img" prefWidth="108.0" text="Image" />
+        </columns>
+      </TableView>
+      <VBox layoutX="390.0" layoutY="130.0" spacing="25.0">
+         <children>
+           
+      	 <JFXTextField fx:id="cbp" onKeyPressed="#defaultTheme" prefHeight="25.0" prefWidth="186.0" />
+            <JFXTextField fx:id="qtm" onKeyPressed="#defaultTheme" prefHeight="25.0" prefWidth="186.0" />
+            <JFXTextField fx:id="qtp" onKeyPressed="#defaultTheme" prefHeight="25.0" prefWidth="186.0" />
+         </children>
+      </VBox>
+      <VBox layoutX="740.0" layoutY="129.0" spacing="10.0">
+         <children>
+            <JFXTextField fx:id="pap" onKeyPressed="#defaultTheme" prefHeight="25.0" prefWidth="186.0" />
+            <JFXTextField fx:id="pvp" onKeyPressed="#defaultTheme" prefHeight="25.0" prefWidth="186.0" />
+            <JFXTextField fx:id="ftva" onKeyPressed="#defaultTheme" prefHeight="25.0" prefWidth="186.0" text="19" />
+             <JFXTextField fx:id="tremise" onKeyPressed="#defaultTheme" prefHeight="25.0" prefWidth="186.0" />
+         </children>
+      </VBox>
+      <JFXTextField fx:id="idps" labelFloat="true" layoutX="979.0" layoutY="140.0" onKeyPressed="#defaultTheme" prefHeight="25.0" prefWidth="149.0" promptText="ID Produit" />
+      <JFXRadioButton fx:id="Npro" layoutX="1140.0" layoutY="128.0" onAction="#RadioSelect" selected="true" text="Nouveau produit">
+         <toggleGroup>
+            <ToggleGroup fx:id="RadioSelection" />
+         </toggleGroup>
+      </JFXRadioButton>
+      <JFXRadioButton fx:id="Apro" layoutX="1140.0" layoutY="153.0" onAction="#RadioSelect" text="Ancient produit" toggleGroup="$RadioSelection" />
+      <VBox layoutX="983.0" layoutY="199.0" spacing="25.0">
+         <children>
+      	  <JFXComboBox fx:id="carticle" labelFloat="true" onAction="#defaultTheme" prefWidth="150.0" promptText="Article" />
+            <JFXComboBox fx:id="ccouleur" labelFloat="true" onAction="#defaultTheme" prefWidth="150.0" promptText="couleur" />
+         </children>
+      </VBox>
+       
+	   <JFXTextField fx:id="tn" layoutX="1166.0" layoutY="295.0" onKeyPressed="#defaultTheme" prefHeight="25.0" prefWidth="150.0" />
+       <VBox layoutX="1166.0" layoutY="198.0" spacing="25.0">
+         <children>
+             <JFXComboBox fx:id="cmarque" labelFloat="true" onAction="#defaultTheme" prefWidth="149.0" promptText="Marque" />
+             <JFXComboBox fx:id="ctaille" labelFloat="true" onAction="#defaultTheme" prefHeight="25.0" prefWidth="150.0" promptText="taille:">
+                 <items>
+                     <FXCollections fx:factory="observableArrayList">
+                         <String fx:value="" />
+                         <String fx:value="NUMERIQUE" />
+                         <String fx:value="s" />
+                         <String fx:value="m" />
+                         <String fx:value="l" />
+                         <String fx:value="xl" />
+                         <String fx:value="xxl" />
+                         <String fx:value="xxxl" />
+                     </FXCollections>
+                 </items>
+             </JFXComboBox>
+         </children>
+      </VBox>
+	   <JFXTextArea id="description" fx:id="description" labelFloat="true" layoutX="287.0" layoutY="308.0" prefHeight="56.0" prefWidth="481.0" promptText="description . . ." stylesheets="@sample.css" />
+      <HBox layoutX="793.0" layoutY="332.0" spacing="15.0">
+         <children>
+         
+      	  <JFXButton fx:id="BtnImage" buttonType="RAISED" onAction="#choisieimage" prefHeight="39.0" prefWidth="105.0" text="Image" />
+            <JFXButton fx:id="BtnSupprimer" buttonType="RAISED" mnemonicParsing="false" onAction="#suppp" prefHeight="39.0" prefWidth="105.0" text="Supprimer" />
+            <JFXButton fx:id="BtnModifier" buttonType="RAISED" mnemonicParsing="false" onAction="#modp" prefHeight="39.0" prefWidth="105.0" text="Modifier" />
+            <JFXButton fx:id="BtnVider" buttonType="RAISED" mnemonicParsing="false" onAction="#viderC" prefHeight="39.0" prefWidth="96.0" text="Vider" />
+      	  <JFXButton fx:id="BtnAjouter" buttonType="RAISED" mnemonicParsing="false" onAction="#addp" prefHeight="39.0" prefWidth="96.0" text="Ajouter" />
+         </children>
+      </HBox>
+      
+	  <Separator layoutX="265.0" layoutY="107.0" orientation="VERTICAL" prefHeight="265.0" prefWidth="16.0" />
+      <AnchorPane id="navbar" layoutX="-1.0" layoutY="3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="101.0" prefWidth="1366.0" styleClass="navbar">
+         <children>
+            <TextField fx:id="time" layoutX="735.0" layoutY="18.0" maxWidth="462.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="462.0" styleClass="tex">
+               <font>
+                  <Font size="37.0" />
+               </font>
+            </TextField>
+             <JFXButton fx:id="back" buttonType="RAISED" layoutX="16.0" layoutY="12.0" mnemonicParsing="false" onAction="#Back" prefHeight="62.0" prefWidth="79.0" text="">
+                 <graphic>
+        <ImageView fitHeight="62.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
+          <image>
+            <Image url="project/img/back.png" />
+          </image>
+        </ImageView>
+      </graphic>
+             </JFXButton>
+             <JFXButton id="notification" fx:id="btnnoti" buttonType="RAISED" layoutX="1225.0" layoutY="9.0" mnemonicParsing="false" onAction="#opennoti" prefHeight="80.0" prefWidth="87.0">
+                 <graphic>
+                     <ImageView fitHeight="48.0" fitWidth="50.0" layoutX="1243.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+                         <image>
+                             <Image url="project/img/bell.png" />
+                         </image>
+                     </ImageView>
+                 </graphic>
+             </JFXButton>
+            <TextField fx:id="noti" layoutX="1291.0" layoutY="5.0" prefHeight="37.0" prefWidth="32.0" styleClass="tex">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+             <JFXTextField id="recherchenavbar" fx:id="rechp" layoutX="137.0" layoutY="48.0" onKeyPressed="#rech" prefHeight="25.0" prefWidth="170.0" promptText="Recherche:" />
+            <JFXButton fx:id="BtnPasserCommande" buttonType="RAISED" layoutX="330.0" layoutY="29.0" onAction="#passercommande" prefHeight="50.0" prefWidth="130.0" text="Passer Commande" textAlignment="CENTER" />
+            <JFXButton fx:id="BtnVente" buttonType="RAISED" layoutX="475.0" layoutY="29.0" onAction="#vente" prefHeight="50.0" prefWidth="137.0" text="vente" />
+         </children>
+      </AnchorPane>
+      <VBox layoutX="308.0" layoutY="134.0" spacing="35.0">
+         <children>
+             
+            <Label styleClass="gestion_produit_labels" text="Code barre" />
+            <Label styleClass="gestion_produit_labels" text="Qte min" />
+            <Label styleClass="gestion_produit_labels" text="Qt" />
+         </children>
+      </VBox>
+      <VBox layoutX="636.0" layoutY="131.0" prefHeight="137.0" prefWidth="92.0" spacing="19.0">
+         <children>
+            <Label styleClass="gestion_produit_labels" text="Prix d'achat" />
+            <Label styleClass="gestion_produit_labels" text="Prix de vente" />
+            <Label styleClass="gestion_produit_labels" text="TVA" />
+            <Label styleClass="gestion_produit_labels" text="Remise" />
+         </children>
+      </VBox>
+      <Label fx:id="imgSelect" layoutX="793.0" layoutY="295.0" prefHeight="27.0" prefWidth="204.0" text="Image non Selectionné" />
+      <ImageView fx:id="ImgProduit" fitHeight="250.0" fitWidth="250.0" layoutX="14.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="project/img/shirt.png" />
+         </image></ImageView>
+   </children>
+</AnchorPane>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="415.0" prefWidth="587.0" stylesheets="@sample.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.loginController">
+   <children>
+       <JFXButton fx:id="idnt" buttonType="RAISED" layoutX="399.0" layoutY="271.0" mnemonicParsing="false" onAction="#login" onKeyPressed="#loginbtn" stylesheets="@sample.css" text="Identifier">
+         </JFXButton>
+       <JFXTextField fx:id="nu" focusColor="#0e3cc6" labelFloat="true" layoutX="163.0" layoutY="243.0" onKeyPressed="#defaultTheme" onKeyReleased="#loginbtn" styleClass="textfield" unFocusColor="#24ddce" />
+      <JFXPasswordField fx:id="mp" focusColor="#0e3cc6" labelFloat="true" layoutX="163.0" layoutY="295.0" onKeyPressed="#defaultTheme" onKeyReleased="#loginbtn" prefHeight="25.0" prefWidth="146.0" styleClass="textfield" unFocusColor="#24ddce" />
+       <ImageView fitHeight="221.0" fitWidth="593.0" layoutX="-6.0" layoutY="-6.0" opacity="0.82" pickOnBounds="true">
+         <image>
+            <Image url="@../project/img/e-commerce.jpg" />
+         </image>
+         <effect>
+            <DropShadow blurType="GAUSSIAN" height="38.55" radius="18.0325" spread="0.53" width="35.58" />
+         </effect></ImageView>
+      <Label layoutX="14.0" layoutY="245.0" text="Nom d'utilisateur" />
+      <Label layoutX="29.0" layoutY="294.0" text="Mot de passe" />
+      <JFXButton fx:id="bdd" buttonType="RAISED" layoutX="98.0" layoutY="366.0" onAction="#check" ripplerFill="WHITE" text="verifier BDD" />
+      <Hyperlink layoutX="171.0" layoutY="332.0" onAction="#mdpo" text="mot de passe oublier" />
+      <Label fx:id="vb" layoutX="231.0" layoutY="372.0" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="572.0" prefWidth="572.0" stylesheets="@sample.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller_marque_article">
+   <children>
+      <JFXTextField fx:id="tf" layoutX="204.0" layoutY="85.0" onKeyPressed="#defaultTheme" prefHeight="25.0" prefWidth="150.0" promptText="tapez text ici" />
+      <JFXButton buttonType="RAISED" layoutX="388.0" layoutY="31.0" mnemonicParsing="false" onAction="#add" prefHeight="25.0" prefWidth="109.0" text="Ajouter" />
+      <JFXButton fx:id="BtnSupprimer" buttonType="RAISED" layoutX="388.0" layoutY="85.0" mnemonicParsing="false" onAction="#supp" prefHeight="25.0" prefWidth="109.0" text="Supprimer" />
+      <JFXButton id="back" fx:id="BtnBack" buttonType="RAISED" layoutX="23.0" layoutY="10.0" mnemonicParsing="false" onAction="#Back" prefHeight="65.0" prefWidth="65.0" text=" ">
+       <graphic>
+        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+          <image>
+            <Image url="project/img/back.png" />
+          </image>
+        </ImageView>
+      </graphic>
+    </JFXButton>   
+      <JFXComboBox fx:id="chois" labelFloat="true" layoutX="204.0" layoutY="34.0" onAction="#defaultTheme" prefWidth="150.0" promptText="choisir">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value="" />
+               <String fx:value="Marque" />
+               <String fx:value="Catégorie" />
+               <String fx:value="Couleur" />
+            </FXCollections>
+         </items>
+      </JFXComboBox>
+      <TableView fx:id="tm" editable="true" layoutX="8.0" layoutY="151.0" onMousePressed="#defaultTheme" prefHeight="400.0" prefWidth="170.0">
+        <columns>
+           <TableColumn fx:id="idmarque" minWidth="0.0" prefWidth="0.0" text="ID" />
+          <TableColumn fx:id="marque" prefWidth="169.0" text="Marque" />
+        </columns>
+      </TableView>
+      <TableView fx:id="ta" layoutX="198.0" layoutY="151.0" onMousePressed="#defaultTheme" prefHeight="400.0" prefWidth="170.0">
+         <columns>
+            <TableColumn fx:id="idarticle" minWidth="0.0" prefWidth="0.0" text="ID" />
+            <TableColumn fx:id="article" prefWidth="169.0" text="Catégorie" />
+         </columns>
+      </TableView>
+      <TableView fx:id="tco" layoutX="388.0" layoutY="151.0" onMousePressed="#defaultTheme" prefHeight="400.0" prefWidth="170.0">
+         <columns>
+            <TableColumn fx:id="idcouleur" minWidth="0.0" prefWidth="0.0" text="ID" />
+            <TableColumn fx:id="couleur" prefWidth="165.0" text="Couleur" />
+         </columns>
+      </TableView>
+      <Separator layoutX="186.0" layoutY="153.0" orientation="VERTICAL" prefHeight="392.0" prefWidth="7.0" />
+      <Separator layoutX="375.0" layoutY="152.0" orientation="VERTICAL" prefHeight="392.0" prefWidth="7.0" />
+   </children>
+</AnchorPane>

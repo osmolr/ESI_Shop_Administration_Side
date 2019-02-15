@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="accueilroot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="708.0" prefWidth="1232.0" stylesheets="@sample.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controlleraccueil">
+    <children>
+
+      <JFXButton fx:id="achat" buttonType="RAISED" layoutX="695.0" layoutY="381.0" mnemonicParsing="false" onAction="#f" prefHeight="90.0" prefWidth="240.0" styleClass="accueilbutton" text="Achat/Commande">
+         <font>
+            <Font size="20.0" />
+         </font>
+      <graphic>
+        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" styleClass="imgbutton">
+          <image>
+            <Image url="project/img/achat_commande.png" />
+          </image>
+        </ImageView> 
+      </graphic>   
+      </JFXButton>
+      <JFXButton fx:id="marque" buttonType="RAISED" layoutX="695.0" layoutY="541.0" mnemonicParsing="false" onAction="#e" prefHeight="90.0" prefWidth="240.0" styleClass="accueilbutton" text="Catégorie/Marque/Article">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <graphic>
+        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" styleClass="imgbutton">
+          <image>
+            <Image url="project/img/clothing.png" />
+          </image>
+        </ImageView> 
+      </graphic>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="695.0" layoutY="221.0" mnemonicParsing="false" onAction="#d" prefHeight="90.0" prefWidth="240.0" styleClass="accueilbutton" text="Gestion Fournisseur">
+         <font>
+            <Font size="20.0" />
+         </font>
+      <graphic>
+        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" styleClass="imgbutton">
+          <image>
+            <Image url="project/img/fournisseur1.png" />
+          </image>
+        </ImageView> 
+      </graphic>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="973.0" layoutY="61.0" mnemonicParsing="false" onAction="#c" prefHeight="90.0" prefWidth="240.0" styleClass="accueilbutton" text="Gestion Produits">
+         <font>
+            <Font size="20.0" />
+         </font>
+      <graphic>
+        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" styleClass="imgbutton">
+          <image>
+            <Image url="project/img/barcode_2.png" />
+          </image>
+        </ImageView> 
+      </graphic>
+      </JFXButton>
+      <JFXButton fx:id="bu" buttonType="RAISED" layoutX="973.0" layoutY="221.0" mnemonicParsing="false" onAction="#b" prefHeight="90.0" prefWidth="240.0" styleClass="accueilbutton" text="Gestion clients">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <graphic>
+        <ImageView id="img1" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" styleClass="imgbutton">
+          <image>
+            <Image url="project/img/client.png" />
+          </image>
+        </ImageView>
+      </graphic>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="695.0" layoutY="61.0" mnemonicParsing="false" onAction="#a" prefHeight="90.0" prefWidth="240.0" styleClass="accueilbutton" text="Espace vente">
+         <font>
+            <Font size="20.0" />
+         </font>
+      <graphic>
+        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" styleClass="imgbutton">
+          <image>
+            <Image url="project/img/espace_vente.png" />
+          </image>
+        </ImageView> 
+      </graphic>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="973.0" layoutY="541.0" mnemonicParsing="false" onAction="#p" prefHeight="90.0" prefWidth="240.0" styleClass="accueilbutton" text="Parametre">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <graphic>
+        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" styleClass="imgbutton">
+          <image>
+            <Image url="project/img/settings.png" />
+          </image>
+        </ImageView> 
+      </graphic>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="973.0" layoutY="381.0" mnemonicParsing="false" onAction="#h" prefHeight="90.0" prefWidth="240.0" styleClass="accueilbutton" stylesheets="@sample.css" text="Historique des ventes">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <graphic>
+        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" styleClass="imgbutton">
+          <image>
+            <Image url="project/img/history_1.png" />
+          </image>
+        </ImageView> 
+      </graphic>
+      </JFXButton>
+        <JFXButton id="back" fx:id="BtnLogOut" buttonType="RAISED" layoutX="23.0" layoutY="10.0" mnemonicParsing="false" onAction="#LogOut" onMouseEntered="#rotate" onMouseExited="#rotateStop" prefHeight="65.0" prefWidth="65.0" text=" ">
+            <graphic>
+                <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="project/img/logout.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </JFXButton>
+   </children>
+</AnchorPane>
