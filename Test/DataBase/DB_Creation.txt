@@ -1,0 +1,202 @@
+CREATE DATABASE bddproject;
+USE bddproject;
+
+CREATE TABLE `bddproject`.`produit` ( `IDProduit` INT NOT NULL AUTO_INCREMENT ,
+									 `IDcp` INT NOT NULL ,
+									 `IDArticle` INT NOT NULL , 
+ 									 `IDMarque` INT NOT NULL , 
+									 `IDCouleur` INT NOT NULL ,
+									 `taille` VARCHAR(10) NOT NULL , 
+									 `quantiteinitial` INT NOT NULL ,  
+									 `quantite` INT NOT NULL ,
+									 `quantitemin` INT NOT NULL ,
+									 `codebarre` VARCHAR(50) NOT NULL ,
+									 `description` VARCHAR(150) NOT NULL ,
+									 `prixachat` FLOAT NOT NULL , 
+									 `prixvente` FLOAT NOT NULL ,
+									 `remise` FLOAT NOT NULL , 
+									 `TVA` FLOAT NOT NULL , 
+									 `img` VARCHAR(50) NULL ,
+									 `notifiable` INT NOT NULL, 
+									 `supprimer` INT NOT NULL  DEFAULT '0' ,
+									 PRIMARY KEY (`IDProduit`), 
+									 INDEX (`IDArticle`), 
+									 INDEX (`IDMarque`),
+									 INDEX (`IDCouleur`)) 
+									 ENGINE = InnoDB;
+
+
+CREATE TABLE `bddproject`.`client` ( `IDClient` INT NOT NULL AUTO_INCREMENT , 
+									`nom` VARCHAR(30) NOT NULL , 
+									`prenom` VARCHAR(30) NOT NULL , 
+									`nomdutilisateur` VARCHAR(50) NULL , 
+									`motdepasse` VARCHAR(50) NULL , 
+									`sexe` VARCHAR(10) NOT NULL , 
+									`datedenaissance` DATE NOT NULL , 
+									`email` VARCHAR(50)  NULL , 
+									`adresse` VARCHAR(50)  NULL , 
+									`codepostal` INT(10)  NULL , 
+									`ville` VARCHAR(30)  NULL , 
+									`ntelephone` VARCHAR(30) NOT NULL , 
+									`datedecreation` DATE NOT NULL ,
+									`codebarreCF` VARCHAR(50) NULL ,
+									`point` FLOAT DEFAULT '0' , 
+									`photo` VARCHAR(30) NOT NULL DEFAULT '',
+									PRIMARY KEY (`IDClient`)) 
+									ENGINE = InnoDB;
+
+
+
+CREATE TABLE `bddproject`.`fournisseur` ( `IDFournisseur` INT NOT NULL AUTO_INCREMENT , 
+										 `IDcf` INT NOT NULL ,
+										 `IDMarque` INT NOT NULL , 
+										 `nom` VARCHAR(30) NOT NULL , 
+										 `prenom` VARCHAR(30) NOT NULL , 
+										 `nomdutilisateur` VARCHAR(50) NOT NULL , 
+										 `motdepasse` VARCHAR(50) NOT NULL , 
+										 `ntelephone` VARCHAR(30) NOT NULL , 
+										 `email` VARCHAR(50) NOT NULL , 
+										 `adresse` VARCHAR(50) NOT NULL , 
+										 `fax` VARCHAR(30)  NULL , 
+										 `nregcomm` VARCHAR(50) NOT NULL ,
+										 `supprimerF` INT NOT NULL  DEFAULT '0' , 
+										 `supprimerM` INT NOT NULL  DEFAULT '0' , 
+										 PRIMARY KEY (`IDFournisseur`), 
+										 INDEX (`IDMarque`)) 
+										 ENGINE = InnoDB;
+
+
+
+CREATE TABLE `bddproject`.`achat-commande` ( `IDAchat_Commande` INT NOT NULL AUTO_INCREMENT ,
+											`IDProduit` INT NOT NULL , 
+											`IDFournisseur` INT NOT NULL , 
+											`quantite` INT NOT NULL , 
+											`total` FLOAT NOT NULL , 
+											`date` DATE NOT NULL , 
+											`Etat` VARCHAR(30) NOT NULL ,
+											PRIMARY KEY (`IDAchat_Commande`), 
+											INDEX (`IDProduit`), 
+											INDEX (`IDFournisseur`))
+											ENGINE = InnoDB;
+
+
+
+CREATE TABLE `bddproject`.`facture` ( `IDFacture` INT NOT NULL AUTO_INCREMENT ,
+									 `IDcf` INT NOT NULL,
+									 `IDClient` INT NOT NULL , 
+									 `IDProduit` INT NOT NULL , 
+									 `quantite` INT NOT NULL , 
+									 `date` DATE NOT NULL , 
+									 `prixtotal` FLOAT NOT NULL , 
+									 `Etat` VARCHAR(30) NOT NULL ,
+									 PRIMARY KEY (`IDFacture`), 
+									 INDEX (`IDClient`), 
+									 INDEX (`IDProduit`)) 
+									 ENGINE = InnoDB;
+
+
+
+CREATE TABLE `bddproject`.`notification` ( `IDNotification` INT NOT NULL AUTO_INCREMENT , 
+										  `IDFournisseur` INT NOT NULL , 
+										  `IDProduit` INT NOT NULL , 
+										  `titre` VARCHAR(30) NOT NULL ,
+										  `date` DATE NOT NULL ,
+										  `description` VARCHAR(150) NOT NULL ,
+										  `vu` INT NOT NULL , 
+										  PRIMARY KEY (`IDNotification`), 
+										  INDEX (`IDFournisseur`), 
+										  INDEX (`IDProduit`)) 
+										  ENGINE = InnoDB;
+
+CREATE TABLE `bddproject`.`commentaire` ( `IDCommentaire` INT NOT NULL AUTO_INCREMENT , 
+										  `IDClient` INT NOT NULL , 
+										  `description` VARCHAR(150) NOT NULL ,  
+										  `IDcp` INT NOT NULL ,
+										  PRIMARY KEY (`IDCommentaire`), 
+										  INDEX (`IDClient`)) 
+										  ENGINE = InnoDB;
+
+
+
+CREATE TABLE `bddproject`.`marque` ( `IDMarque` INT NOT NULL AUTO_INCREMENT , 
+									`nom-marque` VARCHAR(30) NOT NULL UNIQUE, 
+									PRIMARY KEY (`IDMarque`)) 
+									ENGINE = InnoDB;
+
+
+CREATE TABLE `bddproject`.`article` ( `IDArticle` INT NOT NULL AUTO_INCREMENT , 
+									 `type-article` VARCHAR(30) NOT NULL UNIQUE, 
+									 PRIMARY KEY (`IDArticle`)) 
+									 ENGINE = InnoDB;
+
+CREATE TABLE `bddproject`.`login` (  `IDLogin` INT NOT NULL AUTO_INCREMENT  , 				 
+									 `nomdutilisateur` VARCHAR(30) , 
+									 `motdepasse` VARCHAR(30) ,
+									 `hint` VARCHAR(30),
+									 `nom` VARCHAR(30),
+									 `prenom` VARCHAR(30),
+									 `adresse` VARCHAR(50),
+									 `ntel` VARCHAR(30),
+									 PRIMARY KEY (`IDLogin`) )
+									 ENGINE = InnoDB;
+
+CREATE TABLE `bddproject`.`couleur` ( `IDCouleur` INT NOT NULL AUTO_INCREMENT , 
+									`nom-couleur` VARCHAR(30) NOT NULL UNIQUE, 
+									PRIMARY KEY (`IDCouleur`)) 
+									ENGINE = InnoDB;
+
+									
+ALTER TABLE `produit` ADD CONSTRAINT `produit-couleur` FOREIGN KEY (`IDCouleur`) 
+															REFERENCES `bddproject`.`couleur`(`IDCouleur`) 
+															ON DELETE RESTRICT 
+															ON UPDATE RESTRICT;
+
+
+ALTER TABLE `produit` ADD CONSTRAINT `produit-article` FOREIGN KEY (`IDArticle`) 
+															REFERENCES `bddproject`.`article`(`IDArticle`) 
+															ON DELETE RESTRICT 
+															ON UPDATE RESTRICT;
+															
+ALTER TABLE `achat-commande` ADD CONSTRAINT `achat-commande-produit` FOREIGN KEY (`IDProduit`) 
+															REFERENCES `bddproject`.`produit`(`IDProduit`) 
+															ON DELETE RESTRICT;
+
+ALTER TABLE `produit` ADD CONSTRAINT `produit-marque` FOREIGN KEY (`IDMarque`) 
+															REFERENCES `bddproject`.`marque`(`IDMarque`) 
+															ON DELETE RESTRICT 
+															ON UPDATE RESTRICT;
+															
+
+ALTER TABLE `notification` ADD CONSTRAINT `notification-fournisseur` FOREIGN KEY (`IDFournisseur`) 
+															REFERENCES `bddproject`.`fournisseur`(`IDFournisseur`) 
+															ON DELETE RESTRICT 
+															ON UPDATE RESTRICT;
+															
+ALTER TABLE `achat-commande` ADD CONSTRAINT `achat-commande-fournisseur` FOREIGN KEY (`IDFournisseur`) 
+															REFERENCES `bddproject`.`fournisseur`(`IDFournisseur`) 
+															ON DELETE RESTRICT;
+															
+ALTER TABLE `facture` ADD CONSTRAINT `facture-produit` FOREIGN KEY (`IDProduit`) 
+													   REFERENCES `bddproject`.`produit`(`IDProduit`) 
+															ON DELETE RESTRICT ;
+											
+
+ALTER TABLE `facture` ADD CONSTRAINT `facture-client` FOREIGN KEY (`IDClient`) 
+															REFERENCES `bddproject`.`client`(`IDClient`) 
+															ON DELETE RESTRICT ;
+													
+															
+ALTER TABLE `notification` ADD CONSTRAINT `notification-produit` FOREIGN KEY (`IDProduit`) 
+															REFERENCES `bddproject`.`produit`(`IDProduit`) 
+															ON DELETE RESTRICT 
+															ON UPDATE RESTRICT;	
+
+ALTER TABLE `fournisseur` ADD CONSTRAINT `fournisseur-marque` FOREIGN KEY (`IDMarque`) 
+															REFERENCES `bddproject`.`marque`(`IDMarque`) 
+															ON DELETE RESTRICT 
+															ON UPDATE RESTRICT;				
+
+ALTER TABLE `commentaire` ADD CONSTRAINT `commentaire-Client` FOREIGN KEY (`IDClient`) 
+															REFERENCES `bddproject`.`Client`(`IDClient`) 
+															ON DELETE RESTRICT 
+															ON UPDATE RESTRICT;	
